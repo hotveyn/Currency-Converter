@@ -14,7 +14,6 @@
 import {reactive, ref} from "vue";
 
 let searchText = ref("")
-reactive({searchText});
 
 </script>
 
