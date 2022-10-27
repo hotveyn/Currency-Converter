@@ -3,11 +3,12 @@
     <p class="card__title">{{ cardsInfo.Name }}</p>
     <div class="card__change-container">
       <div class="card__inc-form">
-        <p :ref="diff" :class="{red:ifDiffLessThenZero()}">
+        <p :class="{red:diffLessThenZero()}">
           <span class="card__char-code">{{ cardsInfo.CharCode }} </span> <span
             class="diffA">({{ (cardsInfo.Value - cardsInfo.Previous).toFixed(2) }})</span></p>
-        <div class="separate"></div>
       </div>
+
+      <div class="separate"></div>
       <div>
         <span class="card__currency-value">{{ cardsInfo.Value.toFixed(2) }}</span>
         <span class="card__current-currency"> RUB</span>
@@ -20,10 +21,9 @@
 
 const props = defineProps({
   cardsInfo: Object,
-  diff: Number
 });
 
-function ifDiffLessThenZero() {
+function diffLessThenZero() {
   if (props.cardsInfo!.Value - props.cardsInfo!.Previous < 0) {
     return true;
   }
@@ -64,6 +64,7 @@ function ifDiffLessThenZero() {
   }
 
   .card__change-container {
+    width: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
