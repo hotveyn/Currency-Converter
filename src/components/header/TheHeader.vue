@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <a href="./index.html"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
-    <a href="#">Конвертер</a>
+    <a href="#" class="header__converter">Конвертер</a>
   </header>
 </template>
 
@@ -9,15 +9,21 @@
 
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  a{
+  .header__converter{
     font-size: 20px;
     text-decoration: none;
     color: black;
+    border-bottom: 2px solid grey;
+    transition: color 0.2s, border-bottom-color 0.2s;
+    &:hover{
+      color: rgb(32, 221, 62);
+      border-bottom-color: rgb(32, 221, 62);
+    }
   }
 }
 </style>

@@ -14,8 +14,9 @@ import TheMain from "@/components/main/TheMain.vue"
 
 .container{
   font-family: 'Roboto', sans-serif;
-  width: 1200px;
+  max-width: 1360px;
+  padding: 20px;
+  width: 100%;
   margin: 0 auto;
-  padding: 20px 0;
 }
 </style>
