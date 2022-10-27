@@ -19,17 +19,8 @@ export const useValutesStore = defineStore('valutes', {
             }
         ]}),
     actions: {
-        addValute(id:string,numCode:string,charCode:string,
-                  nominal:number, name:string,value:number,previous:number){
-            this.valutes.push({
-                    ID:id,
-                    NumCode:numCode,
-                    CharCode:charCode,
-                    Nominal:nominal,
-                    Name:name,
-                    Value:value,
-                    Previous:previous
-            })
+        addValute(currency:IValute){
+            this.valutes.push(currency)
         }
     }
 })

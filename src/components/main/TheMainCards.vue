@@ -15,13 +15,7 @@ async function getCurrencys(){
   const json = await res.json();
   for(let key in json.Valute){
     valutesStore.addValute(
-        json.Valute[key].ID,
-        json.Valute[key].NumCode,
-        json.Valute[key].CharCode,
-        json.Valute[key].Nominal,
-        json.Valute[key].Name,
-        json.Valute[key].Value,
-        json.Valute[key].Previous,
+        json.Valute[key]
     )
   }
 }
