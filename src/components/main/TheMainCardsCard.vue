@@ -1,6 +1,6 @@
 <template>
-  <div class="card">
-    <p class="card__title">{{ cardsInfo.Name }}</p>
+  <div class="card" :class="{hide:searchToCards()}">
+    <p  class="card__title">{{ cardsInfo.Name }}</p>
     <div class="card__change-container">
       <div class="card__inc-form">
         <p :class="{red:diffLessThenZero()}">
@@ -18,6 +18,9 @@
 </template>
 
 <script setup lang="ts" defer>
+import {useSearchStore} from "../../stores/searchText";
+
+let useSearch = useSearchStore();
 
 const props = defineProps({
   cardsInfo: Object,
@@ -26,6 +29,15 @@ const props = defineProps({
 function diffLessThenZero() {
   if (props.cardsInfo!.Value - props.cardsInfo!.Previous < 0) {
     return true;
+  }
+}
+
+function searchToCards(){
+  let text = useSearch.search.trim().toLowerCase();
+  if(text !==""){
+    return props.cardsInfo!.Name.search(text) === -1;
+  }else{
+    return false;
   }
 }
 
