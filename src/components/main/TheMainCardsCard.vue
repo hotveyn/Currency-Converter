@@ -2,10 +2,9 @@
   <div class="card" :class="{hide:searchToCards()}">
     <p  class="card__title">{{ cardsInfo.Name }}</p>
     <div class="card__change-container">
-      <div class="card__inc-form">
-        <p :class="{red:diffLessThenZero()}">
+      <div class="card__inc-form" :class="{red:diffLessThenZero()}">
           <span class="card__char-code">{{ cardsInfo.CharCode }} </span> <span
-            class="diffA">({{ (cardsInfo.Value - cardsInfo.Previous).toFixed(2) }})</span></p>
+            class="diffA">({{ (cardsInfo.Value - cardsInfo.Previous).toFixed(2) }})</span>
       </div>
 
       <div class="separate"></div>
@@ -85,6 +84,12 @@ function searchToCards(){
 
     .card__inc-form {
       color: rgb(15, 199, 45);
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      .diffA{
+        font-size: 14px;
+      }
     }
 
     .red {
