@@ -21,7 +21,7 @@ const searchStore = useSearchStore();
   font-size: 19px;
   width: 100%;
   outline: none;
-  border: 2px solid grey;
+  border: 2px solid #cdcdcd;
   border-radius: 5px;
 }
 </style>
