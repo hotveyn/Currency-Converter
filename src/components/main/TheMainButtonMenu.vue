@@ -1,14 +1,17 @@
 <template>
   <div class="currency-list__menu menu">
-    <div class="menu__valute" v-for="item in valutesStore.valutes">{{item.CharCode}}</div>
+    <div @click="chooseCurrency(item.CharCode)" class="menu__valute" v-for="item in valutesStore.valutes">{{item.CharCode}}</div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {useValutesStore} from "../../stores/valutes.js";
-
+import {useChosenCurrencyStore} from "../../stores/chosenCurrency";
 const valutesStore = useValutesStore();
-
+const chosenCurrencyStore = useChosenCurrencyStore();
+function chooseCurrency(currency:string){
+  chosenCurrencyStore.chosenCurrency = currency;
+}
 </script>
 
 <style lang="scss">
@@ -28,7 +31,6 @@ const valutesStore = useValutesStore();
   background: white;
   transform: translate(calc(-100% + 100px), 100%);
   display: grid;
-
 
   .menu__valute {
     font-weight: 600;
