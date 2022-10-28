@@ -1,19 +1,29 @@
 <template>
-  <div class="currency-list__button-menu">
-    <button class="currency-list__button">
-      <span class="currency-name">RUB</span>
+  <div  class="currency-list__button-menu">
+    <button  @click="showMenu" class="currency-list__button">
+      <span class="currency-name">{{chosenValute}}</span>
+      <the-main-button-menu :class="{hide:isShowMenu}"></the-main-button-menu>
     </button>
-    <div class="currency-list__menu">
-<!--      Генерация хуенация компонентов валют-->
-    </div>
+
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import TheMainButtonMenu from "@/components/main/TheMainButtonMenu.vue"
+import {ref} from "vue";
 
+let isShowMenu = ref(true);
+function showMenu(){
+  isShowMenu.value = !(isShowMenu.value);
+  return isShowMenu;
+}
+let chosenValute = ref("RUB");
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
+.hide{
+  display: none;
+}
 .currency-list__button-menu {
   position: relative;
   margin-left: 30px;
