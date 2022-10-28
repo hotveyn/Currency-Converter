@@ -1,8 +1,7 @@
 <template>
   <label>
     <input
-        v-model.trim="searchText"
-        @change="changeText"
+        v-model.trim="searchStore.search"
         class="search"
         placeholder="Название валюты или ее код"
         type="text"
@@ -11,10 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from "vue";
-
-let searchText = ref("")
-
+import {useSearchStore} from "../../stores/searchText";
+const searchStore = useSearchStore();
 </script>
 
 <style lang="scss">
