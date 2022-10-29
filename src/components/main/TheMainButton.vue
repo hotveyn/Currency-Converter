@@ -2,8 +2,8 @@
   <div  class="currency-list__button-menu">
     <button  @click="showMenu" class="currency-list__button">
       <span class="currency-name">{{chosenCurrencyStore.chosenCurrency}}</span>
-      <the-main-button-menu chooseValute="chosenValute" :class="{hide:isShowMenu}"></the-main-button-menu>
     </button>
+    <the-main-button-menu chooseValute="chosenValute" :class="{hide:isShowMenu}"></the-main-button-menu>
 
   </div>
 </template>
