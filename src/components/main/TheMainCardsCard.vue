@@ -1,16 +1,16 @@
-<template >
+<template>
   <div class="card" :class="{hide:searchToCards()}">
-    <p  class="card__title">{{ cardsInfo?.Name }}</p>
+    <p class="card__title">{{ cardsInfo?.Name }}</p>
     <div class="card__change-container">
       <div class="card__inc-form" :class="{red:diffLessThenZero()}">
-          <span class="card__char-code">{{ cardsInfo?.CharCode }} </span> <span
-            class="diffA">({{ (cardsInfo?.Value - cardsInfo?.Previous).toFixed(2) }})</span>
+        <span class="card__char-code">{{ cardsInfo?.Nominal }} {{ cardsInfo?.CharCode }} </span> <span
+          class="diffA">({{ getDiffRate() }})</span>
       </div>
 
       <div class="separate"></div>
       <div>
-        <span class="card__currency-value">{{ cardsInfo?.Value.toFixed(2) }}</span>
-        <span class="card__current-currency"> RUB</span>
+        <span class="card__currency-value">{{ getValueRate() }}</span>
+        <span class="card__current-currency">{{ " " + useChosenCurrency.chosenCurrencyObj.CharCode }}</span>
       </div>
     </div>
   </div>
@@ -18,25 +18,40 @@
 
 <script setup lang="ts" defer>
 import {useSearchStore} from "@/stores/searchText";
-import {IValute} from "@/interfaces/IValute";
+import {useChosenCurrencyStore} from "@/stores/chosenCurrency";
 
 const props = defineProps({
   cardsInfo: Object,
 });
 
+let useChosenCurrency = useChosenCurrencyStore();
 let useSearch = useSearchStore();
 
 function diffLessThenZero() {
-  if (props.cardsInfo!.Value - props.cardsInfo!.Previous < 0) {
+  if (Number(getDiffRate()) < 0) {
     return true;
   }
 }
-function searchToCards(){
+
+function getValueRate(): string {
+  return (props.cardsInfo?.Value / useChosenCurrency.chosenCurrencyObj.Value).toFixed(2)
+}
+
+function getDiffRate(): string {
+  if (useChosenCurrency.chosenCurrencyObj.CharCode === "RUB") {
+    return (props.cardsInfo?.Value - props.cardsInfo?.Previous).toFixed(2)
+  }
+  return ((props.cardsInfo?.Value - props.cardsInfo?.Previous) /
+      (useChosenCurrency.chosenCurrencyObj.Value - useChosenCurrency.chosenCurrencyObj.Previous))
+      .toFixed(2)
+}
+
+function searchToCards() {
   let text = useSearch.search.trim().toLowerCase();
-  if(text !==""){
+  if (text !== "") {
     let cardName = props.cardsInfo!.Name.toLowerCase();
     return cardName.search(text) === -1;
-  }else{
+  } else {
     return false;
   }
 }
@@ -88,7 +103,8 @@ function searchToCards(){
       display: flex;
       gap: 4px;
       align-items: center;
-      .diffA{
+
+      .diffA {
         font-size: 14px;
       }
     }
