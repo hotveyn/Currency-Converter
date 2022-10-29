@@ -1,15 +1,15 @@
-<template>
+<template >
   <div class="card" :class="{hide:searchToCards()}">
-    <p  class="card__title">{{ cardsInfo.Name }}</p>
+    <p  class="card__title">{{ cardsInfo?.Name }}</p>
     <div class="card__change-container">
       <div class="card__inc-form" :class="{red:diffLessThenZero()}">
-          <span class="card__char-code">{{ cardsInfo.CharCode }} </span> <span
-            class="diffA">({{ (cardsInfo.Value - cardsInfo.Previous).toFixed(2) }})</span>
+          <span class="card__char-code">{{ cardsInfo?.CharCode }} </span> <span
+            class="diffA">({{ (cardsInfo?.Value - cardsInfo?.Previous).toFixed(2) }})</span>
       </div>
 
       <div class="separate"></div>
       <div>
-        <span class="card__currency-value">{{ cardsInfo.Value.toFixed(2) }}</span>
+        <span class="card__currency-value">{{ cardsInfo?.Value.toFixed(2) }}</span>
         <span class="card__current-currency"> RUB</span>
       </div>
     </div>
@@ -18,19 +18,19 @@
 
 <script setup lang="ts" defer>
 import {useSearchStore} from "@/stores/searchText";
-
-let useSearch = useSearchStore();
+import {IValute} from "@/interfaces/IValute";
 
 const props = defineProps({
   cardsInfo: Object,
 });
+
+let useSearch = useSearchStore();
 
 function diffLessThenZero() {
   if (props.cardsInfo!.Value - props.cardsInfo!.Previous < 0) {
     return true;
   }
 }
-
 function searchToCards(){
   let text = useSearch.search.trim().toLowerCase();
   if(text !==""){
