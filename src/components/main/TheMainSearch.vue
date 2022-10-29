@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {useSearchStore} from "../../stores/searchText";
+import {useSearchStore} from "@/stores/searchText";
 const searchStore = useSearchStore();
 </script>
 

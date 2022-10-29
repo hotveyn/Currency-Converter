@@ -17,7 +17,7 @@
 </template>
 
 <script setup lang="ts" defer>
-import {useSearchStore} from "../../stores/searchText";
+import {useSearchStore} from "@/stores/searchText";
 
 let useSearch = useSearchStore();
 

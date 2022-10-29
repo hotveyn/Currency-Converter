@@ -6,7 +6,7 @@
 
 <script setup lang="ts" defer>
 import TheMainCardsCard from "@/components/main/TheMainCardsCard.vue"
-import {useValutesStore} from "../../stores/valutes";
+import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();
 

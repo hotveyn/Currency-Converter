@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia'
-import {IValute} from "../interfaces/IValute";
+import {IValute} from "@/interfaces/IValute";
 
 
 interface IValutes {
