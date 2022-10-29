@@ -1,16 +1,24 @@
 <template>
   <div class="currency-list__menu menu">
-    <div @click="chooseCurrency(item.CharCode)" class="menu__valute" v-for="item in valutesStore.valutes">{{item.CharCode}}</div>
+    <div
+        @click="chooseCurrency(item.CharCode)"
+        class="menu__valute"
+        v-for="item in valutesStore.valutes">
+        {{ item.CharCode }}
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import {useValutesStore} from "../../stores/valutes.js";
 import {useChosenCurrencyStore} from "../../stores/chosenCurrency";
+
 const valutesStore = useValutesStore();
 const chosenCurrencyStore = useChosenCurrencyStore();
-function chooseCurrency(currency:string){
+
+function chooseCurrency(currency: string) {
   chosenCurrencyStore.chosenCurrency = currency;
+  chosenCurrencyStore.getChosenCurrencyObj();
 }
 </script>
 
@@ -38,6 +46,7 @@ function chooseCurrency(currency:string){
     transition: color 0.2s;
     display: flex;
     gap: 5px;
+
     &:hover {
       color: rgb(15, 199, 45);
     }
