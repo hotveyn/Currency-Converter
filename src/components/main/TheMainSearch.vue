@@ -11,11 +11,12 @@
 
 <script setup lang="ts">
 import {useSearchStore} from "@/stores/searchText";
+
 const searchStore = useSearchStore();
 </script>
 
 <style lang="scss">
-.search{
+.search {
   margin-top: 25px;
   padding: 7px;
   font-size: 19px;

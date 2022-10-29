@@ -12,6 +12,7 @@
         <span class="card__currency-value">{{ getValueRate() }}</span>
         <span class="card__current-currency">{{ " " + useChosenCurrency.chosenCurrencyObj.CharCode }}</span>
       </div>
+
     </div>
   </div>
 </template>
@@ -27,10 +28,8 @@ const props = defineProps({
 let useChosenCurrency = useChosenCurrencyStore();
 let useSearch = useSearchStore();
 
-function diffLessThenZero() {
-  if (Number(getDiffRate()) < 0) {
-    return true;
-  }
+function diffLessThenZero(): boolean {
+  return Number(getDiffRate()) < 0;
 }
 
 function getValueRate(): string {
@@ -46,7 +45,7 @@ function getDiffRate(): string {
       .toFixed(2)
 }
 
-function searchToCards() {
+function searchToCards(): boolean {
   let text = useSearch.search.trim().toLowerCase();
   if (text !== "") {
     let cardName = props.cardsInfo!.Name.toLowerCase();

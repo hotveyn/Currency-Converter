@@ -10,17 +10,19 @@
 </script>
 
 <style lang="scss">
-.header{
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  .header__converter{
+
+  .header__converter {
     font-size: 20px;
     text-decoration: none;
     color: black;
     border-bottom: 2px solid grey;
     transition: color 0.2s, border-bottom-color 0.2s;
-    &:hover{
+
+    &:hover {
       color: rgb(32, 221, 62);
       border-bottom-color: rgb(32, 221, 62);
     }

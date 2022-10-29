@@ -3,7 +3,8 @@
     <div
         @click="chooseCurrency(item.CharCode)"
         class="menu__valute"
-        v-for="item in valutesStore.valutes">
+        v-for="item in valutesStore.valutes"
+        :key="item">
         {{ item.CharCode }}
     </div>
   </div>
@@ -16,7 +17,7 @@ import {useChosenCurrencyStore} from "../../stores/chosenCurrency";
 const valutesStore = useValutesStore();
 const chosenCurrencyStore = useChosenCurrencyStore();
 
-function chooseCurrency(currency: string) {
+function chooseCurrency(currency: string): void {
   chosenCurrencyStore.chosenCurrency = currency;
   chosenCurrencyStore.getChosenCurrencyObj();
 }

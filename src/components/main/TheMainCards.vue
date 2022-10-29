@@ -1,8 +1,9 @@
 <template>
   <div class="cards">
     <the-main-cards-card
-        :cardsInfo="item"
         v-for="item in valutesStore.valutes.slice(1)"
+        :key="item"
+        :cardsInfo="item"
     ></the-main-cards-card>
   </div>
 </template>
@@ -13,7 +14,7 @@ import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();
 
-async function getCurrencys() {
+async function getCurrencys(): Promise<void> {
   const res = await fetch("https://www.cbr-xml-daily.ru/daily_json.js");
   const json = await res.json();
   for (let key in json.Valute) {
