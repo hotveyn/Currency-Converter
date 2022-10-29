@@ -34,7 +34,8 @@ function diffLessThenZero() {
 function searchToCards(){
   let text = useSearch.search.trim().toLowerCase();
   if(text !==""){
-    return props.cardsInfo!.Name.search(text) === -1;
+    let cardName = props.cardsInfo!.Name.toLowerCase();
+    return cardName.search(text) === -1;
   }else{
     return false;
   }
