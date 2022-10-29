@@ -1,6 +1,9 @@
 <template>
   <div class="cards">
-    <the-main-cards-card :cardsInfo="item" v-for="item in valutesStore.valutes"></the-main-cards-card>
+    <the-main-cards-card
+        :cardsInfo="item"
+        v-for="item in valutesStore.valutes"
+    ></the-main-cards-card>
   </div>
 </template>
 
@@ -10,21 +13,21 @@ import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();
 
-async function getCurrencys(){
+async function getCurrencys() {
   const res = await fetch("https://www.cbr-xml-daily.ru/daily_json.js");
   const json = await res.json();
-  for(let key in json.Valute){
+  for (let key in json.Valute) {
     valutesStore.addValute(
         json.Valute[key]
     )
   }
 }
-getCurrencys();
 
+getCurrencys();
 </script>
 
 <style scoped lang="scss">
-.cards{
+.cards {
   display: flex;
   flex-wrap: wrap;
   margin: 33px auto;
