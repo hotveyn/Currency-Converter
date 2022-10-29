@@ -6,13 +6,13 @@ import {useValutesStore} from "@/stores/valutes";
 export const useChosenCurrencyStore = defineStore("chosenCurrency", () => {
     const chosenCurrency = ref("RUB");
     let chosenCurrencyObj = ref({
-        ID:"R01090R",
-        NumCode:"810",
-        CharCode:"RUB",
-        Nominal:1,
-        Name:"Российский рубль",
-        Value:1,
-        Previous:1
+        ID: "R01090R",
+        NumCode: "810",
+        CharCode: "RUB",
+        Nominal: 1,
+        Name: "Российский рубль",
+        Value: 1,
+        Previous: 1
     });
 
     const valutesStore = useValutesStore();

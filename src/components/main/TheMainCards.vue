@@ -2,7 +2,7 @@
   <div class="cards">
     <the-main-cards-card
         :cardsInfo="item"
-        v-for="item in valutesStore.valutes"
+        v-for="item in valutesStore.valutes.slice(1)"
     ></the-main-cards-card>
   </div>
 </template>
