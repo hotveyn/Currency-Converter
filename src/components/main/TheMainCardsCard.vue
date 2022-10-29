@@ -1,5 +1,5 @@
 <template>
-  <div class="card" :class="{hide:searchToCards()}">
+  <div class="card" v-if="hideCart()">
     <p class="card__title">{{ cardsInfo?.Name }}</p>
     <div class="card__change-container">
       <div class="card__inc-form" :class="{red:diffLessThenZero()}">
@@ -33,7 +33,10 @@ function diffLessThenZero(): boolean {
 }
 
 function getValueRate(): string {
-  return (props.cardsInfo?.Value / useChosenCurrency.chosenCurrencyObj.Value).toFixed(2)
+  if(useChosenCurrency.chosenCurrencyObj.CharCode === "RUB"){
+    return (props.cardsInfo?.Value).toFixed(2)
+  }
+  return ((props.cardsInfo?.Value / useChosenCurrency.chosenCurrencyObj.Value)*useChosenCurrency.chosenCurrencyObj.Nominal).toFixed(2)
 }
 
 function getDiffRate(): string {
@@ -45,13 +48,13 @@ function getDiffRate(): string {
       .toFixed(2)
 }
 
-function searchToCards(): boolean {
+function hideCart(): boolean {
   let text = useSearch.search.trim().toLowerCase();
   if (text !== "") {
     let cardName = props.cardsInfo!.Name.toLowerCase();
-    return cardName.search(text) === -1;
+    return cardName.search(text) !== -1  && props.cardsInfo?.CharCode !== useChosenCurrency.chosenCurrencyObj.CharCode;
   } else {
-    return false;
+    return props.cardsInfo?.CharCode !== useChosenCurrency.chosenCurrencyObj.CharCode;
   }
 }
 
