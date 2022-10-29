@@ -2,7 +2,6 @@
   <div class="cards">
     <the-main-cards-card
         v-for="item in valutesStore.valutes.slice(1)"
-        :key="item"
         :cardsInfo="item"
     ></the-main-cards-card>
   </div>
