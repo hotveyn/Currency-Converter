@@ -1,13 +1,26 @@
 <template>
   <div class="result">
     <label>
-      <input type="number" class="enter-number" value="5000">
+      <input v-model="converterStore.enterNumber" type="number" class="enter-number">
     </label>
-    <p class="rate">1 RUB = 0.02 USD</p>
+    <p class="rate">{{ valutesStore.valutes[converterStore.haveChosen].Nominal }}
+      {{ valutesStore.valutes[converterStore.haveChosen].CharCode }} =
+      {{
+        (valutesStore.valutes[converterStore.haveChosen].Value /
+            valutesStore.valutes[converterStore.wantChosen].Value *
+            valutesStore.valutes[converterStore.wantChosen].Nominal).toFixed(2)
+      }}
+      {{ valutesStore.valutes[converterStore.wantChosen].CharCode }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
+import {useConverterStore} from "@/stores/converter";
+import {useValutesStore} from "@/stores/valutes";
+
+let valutesStore = useValutesStore();
+let converterStore = useConverterStore();
+
 
 </script>
 
@@ -20,6 +33,7 @@
   flex-direction: column;
   justify-content: flex-end;
   border: 1px solid #cdcdcd;
+
   .enter-number {
     margin-top: 20px;
     font-weight: 600;

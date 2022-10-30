@@ -5,6 +5,7 @@ import {ref} from "vue";
 export const useConverterStore = defineStore("converter", () => {
     let haveChosen = ref("RUB");
     let wantChosen = ref("USD");
+    let enterNumber = ref(5000);
 
     function changeHaveChosen(newCharCode: string): void {
         haveChosen.value = newCharCode
@@ -14,5 +15,5 @@ export const useConverterStore = defineStore("converter", () => {
         wantChosen.value = newCharCode
     }
 
-    return {haveChosen, wantChosen, changeHaveChosen, changeWantChosen};
+    return {haveChosen, wantChosen, enterNumber, changeHaveChosen, changeWantChosen};
 })
