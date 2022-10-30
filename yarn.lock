@@ -264,7 +264,7 @@
     "@vue/compiler-dom" "3.2.41"
     "@vue/shared" "3.2.41"
 
-"@vue/devtools-api@^6.4.4":
+"@vue/devtools-api@^6.4.4", "@vue/devtools-api@^6.4.5":
   version "6.4.5"
   resolved "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.4.5.tgz"
   integrity sha512-JD5fcdIuFxU4fQyXUu3w2KpAJHzTVdN+p4iOX2lMWSHMOoQdMAcpFLZzm9Z/2nmsoZ1a96QEhZ26e50xLBsgOQ==
@@ -1426,6 +1426,13 @@ vue-eslint-parser@^9.0.0, vue-eslint-parser@^9.0.1:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-router@4:
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-4.1.6.tgz#b70303737e12b4814578d21d68d21618469375a1"
+  integrity sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==
+  dependencies:
+    "@vue/devtools-api" "^6.4.5"
 
 vue-tsc@^0.40.4:
   version "0.40.13"
