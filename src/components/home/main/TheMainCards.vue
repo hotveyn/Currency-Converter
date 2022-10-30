@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts" defer>
-import TheMainCardsCard from "@/components/main/TheMainCardsCard.vue"
+import TheMainCardsCard from "@/components/home/main/TheMainCardsCard.vue"
 import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import TheMainButton from "@/components/main/TheMainButton.vue"
-import TheMainSeacrh from "@/components/main/TheMainSearch.vue"
-import TheMainCards from "@/components/main/TheMainCards.vue"
+import TheMainButton from "@/components/home/main/TheMainButton.vue"
+import TheMainSeacrh from "@/components/home/main/TheMainSearch.vue"
+import TheMainCards from "@/components/home/main/TheMainCards.vue"
 </script>
 
 <template>

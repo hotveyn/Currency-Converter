@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import {useValutesStore} from "../../stores/valutes.js";
-import {useChosenCurrencyStore} from "../../stores/chosenCurrency";
+import {useValutesStore} from "../../../stores/valutes";
+import {useChosenCurrencyStore} from "../../../stores/chosenCurrency";
 
 const valutesStore = useValutesStore();
 const chosenCurrencyStore = useChosenCurrencyStore();

@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import TheMainButtonMenu from "@/components/main/TheMainButtonMenu.vue"
+import TheMainButtonMenu from "@/components/home/main/TheMainButtonMenu.vue"
 import {Ref, ref} from "vue";
-import {useChosenCurrencyStore} from "../../stores/chosenCurrency";
+import {useChosenCurrencyStore} from "../../../stores/chosenCurrency";
 
 const chosenCurrencyStore = useChosenCurrencyStore();
 let isShowMenu = ref(true);
