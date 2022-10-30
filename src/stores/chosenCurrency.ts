@@ -17,9 +17,9 @@ export const useChosenCurrencyStore = defineStore("chosenCurrency", () => {
 
     const valutesStore = useValutesStore();
 
-    function getChosenCurrencyObj(): void {
+    function setChosenCurrencyObj(): void {
         chosenCurrencyObj.value = valutesStore.valutes[chosenCurrency.value]
     }
 
-    return {chosenCurrency, getChosenCurrencyObj, chosenCurrencyObj}
+    return {chosenCurrency, setChosenCurrencyObj, chosenCurrencyObj}
 })

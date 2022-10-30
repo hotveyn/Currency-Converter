@@ -18,7 +18,7 @@ const chosenCurrencyStore = useChosenCurrencyStore();
 
 function chooseCurrency(currency: string): void {
   chosenCurrencyStore.chosenCurrency = currency;
-  chosenCurrencyStore.getChosenCurrencyObj();
+  chosenCurrencyStore.setChosenCurrencyObj();
 }
 </script>
 
