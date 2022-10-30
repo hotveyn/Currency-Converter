@@ -1,13 +1,24 @@
 <template>
-<div class="choose" :class="{left:leftborder, right:rightborder}">Выбрать</div>
+  <div
+      @click="showHideMenu()"
+      class="choose">Выбрать
+  </div>
+  <div class="menu" v-if="isHideMenu">
+    <the-main-have-choose-menu></the-main-have-choose-menu>
+  </div>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-      leftborder: String,
-      rightborder: String,
-    }
-)
+import TheMainHaveChooseMenu from "@/components/converter/main/TheMainHaveChooseMenu.vue"
+import {ref} from "vue";
+
+
+let isHideMenu = ref(false);
+
+function showHideMenu() {
+  isHideMenu.value = !isHideMenu.value;
+}
+
 </script>
 
 <style scoped lang="scss">
@@ -21,16 +32,24 @@ const props = defineProps({
   align-items: center;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
-  &:hover{
+
+  &:hover {
     background-color: rgb(86, 143, 109);
     color: white;
   }
 
 }
-.left{
+
+.left {
   border-radius: 10px 0 0 10px;
 }
-.right{
+
+.right {
   border-radius: 0 10px 10px 0;
 }
+
+.menu {
+  position: relative;
+}
+
 </style>
