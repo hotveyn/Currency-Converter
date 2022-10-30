@@ -13,7 +13,7 @@ import TheMainWant from "@/components/converter/main/TheMainWant.vue"
 
 <style lang="scss">
 .reverse {
-  width: 100px;
+  width: 80px;
   transition: opacity 0.2s;
   cursor: pointer;
 

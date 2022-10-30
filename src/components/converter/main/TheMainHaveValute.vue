@@ -1,5 +1,5 @@
 <template>
-<div :class="{left:props.leftborder, right:props.rightborder}" class="valute">RUB</div>
+<div :class="{left:props.leftborder, right:props.rightborder}" class="valute">{{props.standardValute}}</div>
 </template>
 
 <script lang="ts" setup>
@@ -7,6 +7,7 @@
 const props = defineProps<{
   leftborder?: boolean
   rightborder?: boolean
+  standardValute: string
 }>()
 </script>
 

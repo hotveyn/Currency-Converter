@@ -10,7 +10,7 @@ const props = defineProps({
 )
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .choose {
   margin-top: 20px;
   height: 70px;
