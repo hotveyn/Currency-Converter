@@ -1,14 +1,30 @@
 <template>
-  <div :class="{left:props.leftborder, right:props.rightborder}" class="valute">{{props.standardValute}}</div>
+  <div
+      @click="changeChosen()"
+      :class="{chosen:isChosen()}"
+      class="valute">{{ props.valute }}
+  </div>
 </template>
 
 <script lang="ts" setup>
+import {useConverterStore} from "@/stores/converter";
+import {ref} from "vue";
+
+let converter = useConverterStore();
 
 const props = defineProps<{
-  leftborder?: boolean
-  rightborder?: boolean
-  standardValute: string
+  valute: string
 }>()
+
+let chosenValute = ref(props.valute);
+
+function changeChosen() {
+  converter.changeWantChosen(chosenValute.value);
+}
+
+function isChosen() {
+  return chosenValute.value === converter.wantChosen;
+}
 </script>
 
 <style scoped lang="scss">
@@ -23,18 +39,23 @@ const props = defineProps<{
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
   font-size: 23px;
-  &:hover{
+
+  &:hover {
     background-color: #16b67f;
     color: white;
   }
 }
-.left{
+
+.left {
   border-radius: 10px 0 0 10px;
 }
-.right{
+
+.right {
   border-radius: 0 10px 10px 0;
 }
-.chosen{
-  background-color: rgb(99, 218, 118);
+
+.chosen {
+  background-color: #16b67f;
+  color: white;
 }
 </style>
