@@ -17,9 +17,7 @@ async function getCurrencys(): Promise<void> {
   const res = await fetch("https://www.cbr-xml-daily.ru/daily_json.js");
   const json = await res.json();
   for (let key in json.Valute) {
-    valutesStore.addValute(
-        json.Valute[key]
-    )
+    valutesStore.addValute(json.Valute[key].CharCode, json.Valute[key])
   }
 }
 

@@ -18,11 +18,7 @@ export const useChosenCurrencyStore = defineStore("chosenCurrency", () => {
     const valutesStore = useValutesStore();
 
     function getChosenCurrencyObj(): void {
-        for (let i of valutesStore.valutes) {
-            if (i.CharCode === chosenCurrency.value) {
-                chosenCurrencyObj.value = i;
-            }
-        }
+        chosenCurrencyObj.value = valutesStore.valutes[chosenCurrency.value]
     }
 
     return {chosenCurrency, getChosenCurrencyObj, chosenCurrencyObj}

@@ -1,13 +1,19 @@
 <template>
-  asdasd
+  <div class="container">
+    <the-header></the-header>
+  </div>
 </template>
 
-<script>
-export default {
-  name: "Converter"
-}
+<script setup lang="ts">
+import TheHeader from "@/components/converter/header/TheHeader.vue"
 </script>
 
-<style scoped>
-
+<style lang="scss">
+.container{
+  font-family: 'Roboto', sans-serif;
+  max-width: 1360px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
 </style>
