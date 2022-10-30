@@ -25,8 +25,16 @@ import TheMainWant from "@/components/converter/main/TheMainWant.vue"
 .converter {
   display: flex;
   justify-content: space-between;
-  width: 1200px;
+  max-width: 1200px;
+  padding: 0 20px;
   align-items: center;
   margin: 50px auto 0;
+}
+
+@media screen and (max-width: 1250px){
+  .converter{
+    flex-direction: column;
+    gap:30px;
+  }
 }
 </style>

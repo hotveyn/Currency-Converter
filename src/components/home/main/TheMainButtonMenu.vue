@@ -4,7 +4,7 @@
         @click="chooseCurrency(item.CharCode)"
         class="menu__valute"
         v-for="item in valutesStore.valutes">
-        {{ item.CharCode }}
+      {{ item.CharCode }}
     </div>
   </div>
 </template>
