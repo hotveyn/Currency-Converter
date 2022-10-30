@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <a href="../../../../index.html"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
+    <a href="#/"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
     <a href="#/" class="header__converter">Главная</a>
   </header>
 </template>
