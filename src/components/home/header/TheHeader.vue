@@ -3,6 +3,7 @@
     <a href="#/"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
     <a href="#/converter" class="header__converter">Конвертер</a>
   </header>
+  <hr>
 </template>
 
 <script setup lang="ts">
@@ -10,6 +11,10 @@
 </script>
 
 <style lang="scss">
+hr {
+  margin-top: 20px;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

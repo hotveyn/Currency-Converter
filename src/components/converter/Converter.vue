@@ -1,11 +1,13 @@
 <template>
   <div class="container">
     <the-header></the-header>
+    <the-main></the-main>
   </div>
 </template>
 
 <script setup lang="ts">
 import TheHeader from "@/components/converter/header/TheHeader.vue"
+import TheMain from "@/components/converter/main/TheMain.vue"
 </script>
 
 <style lang="scss">
