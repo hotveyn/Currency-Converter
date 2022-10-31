@@ -1,4 +1,4 @@
-import {defineStore} from 'pinia'
+import {defineStore} from 'pinia';
 import {ref} from "vue";
 import {useValutesStore} from "@/stores/valutes";
 
@@ -22,4 +22,4 @@ export const useChosenCurrencyStore = defineStore("chosenCurrency", () => {
     }
 
     return {chosenCurrency, setChosenCurrencyObj, chosenCurrencyObj}
-})
+});

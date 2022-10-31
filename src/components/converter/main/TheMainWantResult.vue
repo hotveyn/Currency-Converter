@@ -1,10 +1,13 @@
 <template>
   <div class="result">
-    <!--    Это пиздец-->
+    <!--Это пиздец-->
     <p class="result__number">{{
-        (converterStore.enterNumber * valutesStore.valutes[converterStore.haveChosen].Value /
-            valutesStore.valutes[converterStore.wantChosen].Value *
-            valutesStore.valutes[converterStore.wantChosen].Nominal).toFixed(2)
+        (converterStore.enterNumber *
+        (valutesStore.valutes[converterStore.haveChosen].Value /
+        valutesStore.valutes[converterStore.wantChosen].Value) /
+        valutesStore.valutes[converterStore.wantChosen].Nominal *
+        valutesStore.valutes[converterStore.haveChosen].Nominal
+        ).toFixed(2)
       }}</p>
     <p class="rate">
       {{ valutesStore.valutes[converterStore.wantChosen].Nominal }}
