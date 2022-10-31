@@ -1,11 +1,13 @@
 <template>
-  <div class></div>
+  <div class/>
   <div class="menu">
     <div
+        v-for="item in valutesStore.valutes"
+        :key="item"
+        class="menu__valute"
         @click="converterStore.changeWantChosen(item.CharCode),
         currencysStore.addNewCurrencyWant(converterStore.wantChosen)"
-        class="menu__valute"
-        v-for="item in valutesStore.valutes" :key="item">
+    >
       {{ item.CharCode }}
     </div>
   </div>
@@ -16,9 +18,9 @@ import {useValutesStore} from "@/stores/valutes";
 import {useConverterStore} from "@/stores/converter";
 import {useCurrencysStore} from "@/stores/currencys";
 
-let valutesStore = useValutesStore();
-let converterStore = useConverterStore();
-let currencysStore = useCurrencysStore();
+const valutesStore = useValutesStore();
+const converterStore = useConverterStore();
+const currencysStore = useCurrencysStore();
 
 </script>
 

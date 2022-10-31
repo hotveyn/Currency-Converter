@@ -1,13 +1,31 @@
 <template>
   <header class="header">
-    <a href="#/"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
-    <a href="#/" class="header__converter">Главная</a>
+    <RouterLink to="/">
+      <img
+src="@/img/CurCorv.png"
+alt="CurCorv logo">
+    </RouterLink>
+    <RouterLink
+        v-if="route.name !== 'home'"
+        class="rt-link"
+        :to="{name: 'home'}"
+    >
+      Главная
+    </RouterLink>
+    <RouterLink
+        v-else
+        class="rt-link"
+        :to="{name: 'converter'}">
+      Конвертер
+    </RouterLink>
   </header>
   <hr>
 </template>
 
 <script setup lang="ts">
+import {useRoute} from "vue-router";
 
+const route = useRoute();
 </script>
 
 <style lang="scss">
@@ -16,13 +34,15 @@ hr {
 }
 
 .header {
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  .header__converter {
+  .rt-link {
     font-size: 20px;
     text-decoration: none;
+    font-family: Roboto;
     color: black;
     border-bottom: 2px solid grey;
     transition: color 0.2s, border-bottom-color 0.2s;

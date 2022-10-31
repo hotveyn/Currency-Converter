@@ -1,18 +1,23 @@
 <template>
-  <div class="card" v-if="hideCart()">
-    <p class="card__title">{{ cardsInfo?.Name }}</p>
+  <div
+      v-if="hideCart()"
+      class="card">
+    <p class="card__title">
+      {{ cardsInfo?.Name }}
+    </p>
     <div class="card__change-container">
-      <div class="card__inc-form" :class="{red:diffLessThenZero()}">
-        <span class="card__char-code">{{ cardsInfo?.Nominal }} {{ cardsInfo?.CharCode }} </span> <span
+      <div
+          class="card__inc-form"
+          :class="{red:diffLessThenZero()}">
+        <span class="card__char-code">{{ props.cardsInfo.Nominal }} {{ props.cardsInfo.CharCode }} </span> <span
           class="diffA">({{ getDiffRate() }})</span>
       </div>
 
-      <div class="separate"></div>
+      <div class="separate"/>
       <div>
         <span class="card__currency-value">{{ getValueRate() }}</span>
         <span class="card__current-currency">{{ " " + useChosenCurrency.chosenCurrencyObj.CharCode }}</span>
       </div>
-
     </div>
   </div>
 </template>
@@ -20,39 +25,39 @@
 <script setup lang="ts" defer>
 import {useSearchStore} from "@/stores/searchText";
 import {useChosenCurrencyStore} from "@/stores/chosenCurrency";
+import {IValute} from "@/interfaces/IValute";
 
-const props = defineProps({
-  cardsInfo: Object,
-});
-
-let useChosenCurrency = useChosenCurrencyStore();
-let useSearch = useSearchStore();
+const props = defineProps<{
+  cardsInfo: IValute;
+}>();
+const useChosenCurrency = useChosenCurrencyStore();
+const useSearch = useSearchStore();
 
 function diffLessThenZero(): boolean {
   return Number(getDiffRate()) < 0;
 }
 
 function getValueRate(): string {
-  if(useChosenCurrency.chosenCurrencyObj.CharCode === "RUB"){
-    return (props.cardsInfo?.Value).toFixed(2)
+  if (useChosenCurrency.chosenCurrencyObj.CharCode === "RUB") {
+    return (props.cardsInfo?.Value).toFixed(2);
   }
-  return ((props.cardsInfo?.Value / useChosenCurrency.chosenCurrencyObj.Value)*useChosenCurrency.chosenCurrencyObj.Nominal).toFixed(2)
+  return ((props.cardsInfo?.Value / useChosenCurrency.chosenCurrencyObj.Value) * useChosenCurrency.chosenCurrencyObj.Nominal).toFixed(2);
 }
 
 function getDiffRate(): string {
   if (useChosenCurrency.chosenCurrencyObj.CharCode === "RUB") {
-    return (props.cardsInfo?.Value - props.cardsInfo?.Previous).toFixed(2)
+    return (props.cardsInfo?.Value - props.cardsInfo?.Previous).toFixed(2);
   }
   return ((props.cardsInfo?.Value - props.cardsInfo?.Previous) /
       (useChosenCurrency.chosenCurrencyObj.Value - useChosenCurrency.chosenCurrencyObj.Previous))
-      .toFixed(2)
+      .toFixed(2);
 }
 
 function hideCart(): boolean {
-  let text = useSearch.search.trim().toLowerCase();
+  const text = useSearch.search.trim().toLowerCase();
   if (text !== "") {
-    let cardName = props.cardsInfo!.Name.toLowerCase();
-    return cardName.search(text) !== -1  && props.cardsInfo?.CharCode !== useChosenCurrency.chosenCurrencyObj.CharCode;
+    const cardName = props.cardsInfo?.Name.toLowerCase();
+    return cardName.search(text) !== -1 && props.cardsInfo?.CharCode !== useChosenCurrency.chosenCurrencyObj.CharCode;
   } else {
     return props.cardsInfo?.CharCode !== useChosenCurrency.chosenCurrencyObj.CharCode;
   }

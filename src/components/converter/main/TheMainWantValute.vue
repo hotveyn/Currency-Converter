@@ -1,8 +1,9 @@
 <template>
   <div
-      @click="changeChosen()"
       :class="{chosen:isChosen()}"
-      class="valute">{{ props.valute }}
+      class="valute"
+      @click="changeChosen()">
+{{ props.valute }}
   </div>
 </template>
 
@@ -10,13 +11,13 @@
 import {useConverterStore} from "@/stores/converter";
 import {ref} from "vue";
 
-let converter = useConverterStore();
+const converter = useConverterStore();
 
 const props = defineProps<{
   valute: string
-}>()
+}>();
 
-let chosenValute = ref(props.valute);
+const chosenValute = ref(props.valute);
 
 function changeChosen() {
   converter.changeWantChosen(chosenValute.value);

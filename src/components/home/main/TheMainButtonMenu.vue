@@ -1,9 +1,10 @@
 <template>
   <div class="currency-list__menu menu">
     <div
-        @click="chooseCurrency(item.CharCode)"
+        v-for="item in valutesStore.valutes"
+        :key="item.CharCode"
         class="menu__valute"
-        v-for="item in valutesStore.valutes">
+        @click="chooseCurrency(item.CharCode)">
       {{ item.CharCode }}
     </div>
   </div>

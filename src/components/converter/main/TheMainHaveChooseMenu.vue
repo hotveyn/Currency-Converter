@@ -1,11 +1,11 @@
 <template>
-  <div class></div>
+  <div class/>
   <div class="menu">
     <div
-        @click="converterStore.changeHaveChosen(item.CharCode),
-        currencysStore.addNewCurrencyHave(converterStore.haveChosen)"
+        v-for="item in valuteStore.valutes"
+        :key="item.ID"
         class="menu__valute"
-        v-for="item in valutesStore.valutes" :key="item">
+@click="renameMe(item)">
       {{ item.CharCode }}
     </div>
   </div>
@@ -15,12 +15,17 @@
 import {useValutesStore} from "@/stores/valutes";
 import {useConverterStore} from "@/stores/converter";
 import {useCurrencysStore} from "@/stores/currencys";
+import {IValute} from "@/interfaces/IValute";
 
-let valutesStore = useValutesStore();
-let converterStore = useConverterStore();
-let currencysStore = useCurrencysStore();
+const valuteStore = useValutesStore();
+const converterStore = useConverterStore();
+const currencyStore = useCurrencysStore();
 
-
+//fixme: rename me
+function renameMe(item: IValute) {
+  currencyStore.setHave(item.CharCode);
+  currencyStore.addNewCurrencyHave(converterStore.haveChosen);
+}
 </script>
 
 <style scoped lang="scss">
@@ -40,7 +45,7 @@ let currencysStore = useCurrencysStore();
   transform: translate(-100%, 100%);
   display: grid;
 
-  .menu__valute {
+  &__valute {
     font-weight: 600;
     cursor: pointer;
     transition: color 0.2s;

@@ -1,14 +1,17 @@
 <template>
   <div class="converter">
-    <the-main-have></the-main-have>
-    <img class="reverse" src="@/img/reverse.svg" alt="reverse">
-    <the-main-want></the-main-want>
+    <the-main-have/>
+    <img
+        class="reverse"
+        src="@/img/reverse.svg"
+        alt="reverse">
+    <the-main-want/>
   </div>
 </template>
 
 <script setup lang="ts">
-import TheMainHave from "@/components/converter/main/TheMainHave.vue"
-import TheMainWant from "@/components/converter/main/TheMainWant.vue"
+import TheMainHave from "@/components/converter/main/TheMainHave.vue";
+import TheMainWant from "@/components/converter/main/TheMainWant.vue";
 </script>
 
 <style lang="scss">
@@ -31,10 +34,10 @@ import TheMainWant from "@/components/converter/main/TheMainWant.vue"
   margin: 50px auto 0;
 }
 
-@media screen and (max-width: 1250px){
-  .converter{
+@media screen and (max-width: 1250px) {
+  .converter {
     flex-direction: column;
-    gap:30px;
+    gap: 30px;
   }
 }
 </style>

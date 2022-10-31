@@ -1,19 +1,22 @@
 <template>
   <div
-      @click="showHideMenu()"
-      class="choose">Выбрать
+      class="choose"
+      @click="showHideMenu()">
+Выбрать
   </div>
-  <div class="menu" v-if="isHideMenu">
-    <the-main-want-choose-menu></the-main-want-choose-menu>
+  <div
+v-if="isHideMenu"
+class="menu">
+    <the-main-want-choose-menu/>
   </div>
 </template>
 
 <script setup lang="ts">
-import TheMainWantChooseMenu from "@/components/converter/main/TheMainWantChooseMenu.vue"
+import TheMainWantChooseMenu from "@/components/converter/main/TheMainWantChooseMenu.vue";
 import {ref} from "vue";
 
 
-let isHideMenu = ref(false);
+const isHideMenu = ref(false);
 
 function showHideMenu() {
   isHideMenu.value = !isHideMenu.value;

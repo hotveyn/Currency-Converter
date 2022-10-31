@@ -5,7 +5,7 @@
         class="search"
         placeholder="Название валюты или ее код"
         type="text"
-    />
+    >
   </label>
 </template>
 

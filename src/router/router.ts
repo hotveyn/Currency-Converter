@@ -1,17 +1,21 @@
-import {createRouter, createWebHashHistory} from "vue-router";
-import Home from "@/components/home/Home.vue"
-import Converter from "@/components/converter/Converter.vue"
-// const routes = [{
-//     history: createWebHashHistory(),
-//     {path: '/', component: Home},
-//     {path: '/about', component: About},
-// }
-// ]
-const routes = [
-    {path: '/', component: Home},
-    {path: '/converter', component: Converter}
-]
+import {createRouter, createWebHistory, RouteRecordRaw} from "vue-router";
+import HomePage from "@/pages/HomePage.vue";
+import ConverterPage from "@/pages/ConverterPage.vue";
+
+const routes: RouteRecordRaw[] = [
+    {
+        path: "/",
+        name: "home",
+        component: HomePage,
+    },
+    {
+        path: "/converter",
+        name: "converter",
+        component: ConverterPage,
+    },
+];
+
 export default createRouter({
-    history: createWebHashHistory(),
-    routes
-})
+    history: createWebHistory(),
+    routes,
+});

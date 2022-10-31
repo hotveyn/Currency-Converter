@@ -1,13 +1,9 @@
-<script setup lang="ts">
-
-import  Home from "@/components/home/Home.vue"
-</script>
-
 <template>
-  <router-view></router-view>
+  <LayoutDefault>
+    <router-view/>
+  </LayoutDefault>
 </template>
+<script setup lang="ts">
+import LayoutDefault from "@/layouts/LayoutDefault.vue";
 
-<style scoped lang="scss">
-
-
-</style>
+</script>

@@ -1,16 +1,21 @@
 <template>
   <div class="result">
     <label>
-      <input v-model="converterStore.enterNumber" type="number" class="enter-number">
+      <input
+v-model="converterStore.enterNumber"
+type="number"
+class="enter-number">
     </label>
-    <p class="rate">{{ valutesStore.valutes[converterStore.haveChosen].Nominal }}
+    <p class="rate">
+{{ valutesStore.valutes[converterStore.haveChosen].Nominal }}
       {{ valutesStore.valutes[converterStore.haveChosen].CharCode }} =
       {{
         (valutesStore.valutes[converterStore.haveChosen].Value /
             valutesStore.valutes[converterStore.wantChosen].Value *
             valutesStore.valutes[converterStore.wantChosen].Nominal).toFixed(2)
       }}
-      {{ valutesStore.valutes[converterStore.wantChosen].CharCode }}</p>
+      {{ valutesStore.valutes[converterStore.wantChosen].CharCode }}
+</p>
   </div>
 </template>
 
@@ -18,8 +23,8 @@
 import {useConverterStore} from "@/stores/converter";
 import {useValutesStore} from "@/stores/valutes";
 
-let valutesStore = useValutesStore();
-let converterStore = useConverterStore();
+const valutesStore = useValutesStore();
+const converterStore = useConverterStore();
 
 
 </script>

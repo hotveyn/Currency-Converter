@@ -1,7 +1,11 @@
 <template>
   <header class="header">
-    <a href="#/"><img src="@/img/CurCorv.png" alt="CurCorv logo"></a>
-    <a href="#/converter" class="header__converter">Конвертер</a>
+    <a href="#/"><img
+src="@/img/CurCorv.png"
+alt="CurCorv logo"></a>
+    <a
+href="#/converter"
+class="header__converter">Конвертер</a>
   </header>
   <hr>
 </template>

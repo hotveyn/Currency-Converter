@@ -1,29 +1,29 @@
 <template>
   <div
-      @click="changeChosen()"
-      :class="{chosen:isChosen()}"
-      class="valute">{{ chosenValute }}
+      :class="{'chosen':isChosen}"
+      class="valute"
+      @click="changeChosen()">
+    {{ chosenValute }}
   </div>
 </template>
 
 <script lang="ts" setup>
 import {useConverterStore} from "@/stores/converter";
-import {ref} from "vue";
-
-let converter = useConverterStore();
+import {computed, ref} from "vue";
 
 const props = defineProps<{
   valute: string
-}>()
-let chosenValute = ref(props.valute);
+}>();
+
+const converter = useConverterStore();
+const chosenValute = ref(props.valute);
 
 function changeChosen() {
   converter.changeHaveChosen(chosenValute.value);
 }
 
-function isChosen() {
-  return chosenValute.value === converter.haveChosen;
-}
+const isChosen = computed(() => chosenValute.value === converter.haveChosen);
+
 </script>
 
 <style scoped lang="scss">

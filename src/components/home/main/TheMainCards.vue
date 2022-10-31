@@ -1,14 +1,15 @@
 <template>
   <div class="cards">
-    <the-main-cards-card
+    <theMainCardsCard
         v-for="item in valutesStore.valutes"
-        :cardsInfo="item"
-    ></the-main-cards-card>
+        :key="item.ID"
+        :cards-info="item"
+    />
   </div>
 </template>
 
 <script setup lang="ts" defer>
-import TheMainCardsCard from "@/components/home/main/TheMainCardsCard.vue"
+import TheMainCardsCard from "@/components/home/main/TheMainCardsCard.vue";
 import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();
@@ -16,8 +17,8 @@ const valutesStore = useValutesStore();
 async function getCurrencys(): Promise<void> {
   const res = await fetch("https://www.cbr-xml-daily.ru/daily_json.js");
   const json = await res.json();
-  for (let key in json.Valute) {
-    valutesStore.addValute(json.Valute[key].CharCode, json.Valute[key])
+  for (const key in json.Valute) {
+    valutesStore.addNewValute(key.trim(), json.Valute[key]);
   }
 }
 
