@@ -2,33 +2,27 @@
   <div class="currency-list__button-menu">
     <button
         class="currency-list__button"
-        @click="showMenu">
+        @click="showMenu()">
       <span class="currency-name">{{ chosenCurrencyStore.chosenCurrency }}</span>
     </button>
-    <the-main-button-menu
-        choose-valute="chosenValute"
-        :class="{hide:isShowMenu}"/>
+    <TheMainButtonMenu v-if="{isShowMenu}"/>
   </div>
 </template>
 
 <script setup lang="ts">
 import TheMainButtonMenu from "@/components/home/main/TheMainButtonMenu.vue";
-import {Ref, ref} from "vue";
+import {ref} from "vue";
 import {useChosenCurrencyStore} from "@/stores/chosenCurrency";
 
 const chosenCurrencyStore = useChosenCurrencyStore();
 const isShowMenu = ref(true);
 
-function showMenu(): Ref<boolean> {
+function showMenu(): void {
   isShowMenu.value = !(isShowMenu.value);
-  return isShowMenu;
 }
 </script>
 
 <style lang="scss">
-.hide {
-  display: none;
-}
 
 .currency-list__button-menu {
   position: relative;

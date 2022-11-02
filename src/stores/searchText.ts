@@ -1,8 +1,12 @@
 import {defineStore} from "pinia";
-import {ref} from "vue";
+import {Ref, ref} from "vue";
 
+interface State {
+    search : Ref<string>
+}
 
-export const useSearchStore = defineStore("search", ()=>{
-    const search = ref("");
-    return{search};
+export const useSearchStore = defineStore("search", {
+    state: (): State => ({
+        search : ref("")
+    })
 });

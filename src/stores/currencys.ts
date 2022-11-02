@@ -16,12 +16,9 @@ export const useCurrencysStore = defineStore("currencys", {
     actions: {
         addNewCurrency(charCode: string, curenciesList: string[]): string[] {
             const newCurrencys = [...curenciesList];
-            if (!curenciesList.includes(charCode)) {
-                for (let i = newCurrencys.length - 1; i > 0; i--) {
-                    newCurrencys[i] = newCurrencys[i - 1];
-                }
-                newCurrencys[0] = charCode;
-            }
+            newCurrencys.unshift(charCode);
+            newCurrencys.length = 4;
+
             return newCurrencys;
         },
     },

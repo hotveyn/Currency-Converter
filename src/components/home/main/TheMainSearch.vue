@@ -3,7 +3,7 @@
     <input
         v-model.trim="searchStore.search"
         class="search"
-        placeholder="Название валюты или ее код"
+        placeholder="Введите название валюты, например - Армянский драм"
         type="text"
     >
   </label>

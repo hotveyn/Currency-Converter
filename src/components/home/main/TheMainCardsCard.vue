@@ -16,7 +16,7 @@
       <div class="separate"/>
       <div>
         <span class="card__currency-value">{{ getValueRate() }}</span>
-        <span class="card__current-currency">{{ " " + useChosenCurrency.chosenCurrencyObj.CharCode }}</span>
+        <span class="card__current-currency">{{ useChosenCurrency.chosenCurrencyObj.CharCode }}</span>
       </div>
     </div>
   </div>
@@ -105,6 +105,9 @@ function hideCart(): boolean {
     margin-top: auto;
     gap: 3px;
 
+    .card__current-currency{
+      margin-left: 8px;
+    }
     .card__inc-form {
       color: rgb(15, 199, 45);
       display: flex;

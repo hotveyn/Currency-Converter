@@ -2,15 +2,8 @@
   <div class="result">
     <!--Это пиздец-->
     <p class="result__number">
-{{
-        (converterStore.enterNumber *
-        (valutesStore.valutes[converterStore.have].Value /
-        valutesStore.valutes[converterStore.want].Value) *
-        valutesStore.valutes[converterStore.want].Nominal /
-        valutesStore.valutes[converterStore.have].Nominal
-        ).toFixed(2)
-      }}
-</p>
+      {{ calculateResultNumber() }}
+    </p>
     <p class="rate">
       {{ valutesStore.valutes[converterStore.want].Nominal }}
       {{ valutesStore.valutes[converterStore.want].CharCode }} =
@@ -20,7 +13,7 @@
             valutesStore.valutes[converterStore.have].Nominal).toFixed(2)
       }}
       {{ valutesStore.valutes[converterStore.have].CharCode }}
-</p>
+    </p>
   </div>
 </template>
 
@@ -30,6 +23,15 @@ import {useValutesStore} from "@/stores/valutes";
 
 const valutesStore = useValutesStore();
 const converterStore = useConverterStore();
+
+function calculateResultNumber(): string {
+  return (converterStore.enterNumber *
+      (valutesStore.valutes[converterStore.have].Value / 
+      valutesStore.valutes[converterStore.want].Value) *
+      valutesStore.valutes[converterStore.want].Nominal /
+      valutesStore.valutes[converterStore.have].Nominal
+      ).toFixed(2);
+}
 </script>
 
 <style scoped lang="scss">

@@ -8,10 +8,10 @@ import TheMainCards from "@/components/home/main/TheMainCards.vue";
   <main class="main">
     <div class="currency-list">
       <h2>Список всех валют</h2>
-      <the-main-button/>
+      <TheMainButton/>
     </div>
-    <the-main-seacrh/>
-    <the-main-cards/>
+    <TheMainSeacrh/>
+    <TheMainCards/>
   </main>
 </template>
 

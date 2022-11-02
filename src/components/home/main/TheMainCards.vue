@@ -1,6 +1,6 @@
 <template>
   <div class="cards">
-    <theMainCardsCard
+    <TheMainCardsCard
         v-for="item in valutesStore.valutes"
         :key="item.ID"
         :cards-info="item"
@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script setup lang="ts" defer>
+<script setup lang="ts">
 import TheMainCardsCard from "@/components/home/main/TheMainCardsCard.vue";
 import {useValutesStore} from "@/stores/valutes";
 
