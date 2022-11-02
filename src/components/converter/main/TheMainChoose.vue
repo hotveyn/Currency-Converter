@@ -1,6 +1,7 @@
 <template>
   <div
       class="choose"
+      :class="{choosing: isHideMenu}"
       @click="showHideMenu()">
     <p>Выбрать</p>
   </div>
@@ -49,6 +50,10 @@ function showHideMenu() {
     color: white;
   }
 
+}
+.choosing{
+  background-color: rgb(86, 143, 109);
+  color: white;
 }
 
 .left {

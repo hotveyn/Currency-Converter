@@ -1,18 +1,17 @@
 import {IValute} from "@/interfaces/IValute";
 import {defineStore} from "pinia";
-import {Ref, ref} from "vue";
 import {useValutesStore} from "@/stores/valutes";
 
 interface State {
-    chosenCurrency: Ref<string>;
-    chosenCurrencyObj: Ref<IValute>;
+    chosenCurrency: string;
+    chosenCurrencyObj: IValute;
 }
 
 export const useChosenCurrencyStore = defineStore("chosenCurrency", {
 
     state: (): State => ({
-        chosenCurrency: ref("RUB"),
-        chosenCurrencyObj: ref({
+        chosenCurrency: "RUB",
+        chosenCurrencyObj: {
             ID: "R01090R",
             NumCode: "810",
             CharCode: "RUB",
@@ -20,7 +19,7 @@ export const useChosenCurrencyStore = defineStore("chosenCurrency", {
             Name: "Российский рубль",
             Value: 1,
             Previous: 1,
-        }),
+        },
     }),
     actions: {
         setChosenCurrencyObj(): void {
