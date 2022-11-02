@@ -11,11 +11,11 @@ export const useValutesStore = defineStore("valutes", {
         valutes: ref({RUB:{
                 ID: "R01010",
                 NumCode: "036",
-                CharCode: "AUD",
+                CharCode: "RUB",
                 Nominal: 1,
-                Name: "Австралийский доллар",
-                Value: 39.8065,
-                Previous: 39.9508
+                Name: "Российский рубль",
+                Value: 1,
+                Previous: 1
             }})
     }),
     actions:{

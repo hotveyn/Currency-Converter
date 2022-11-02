@@ -2,20 +2,20 @@
   <div class="result">
     <label>
       <input
-v-model="converterStore.enterNumber"
-type="number"
-class="enter-number">
+          v-model="converterStore.enterNumber"
+          type="number"
+          class="enter-number">
     </label>
     <p class="rate">
-{{ valutesStore.valutes[converterStore.haveChosen].Nominal }}
-      {{ valutesStore.valutes[converterStore.haveChosen].CharCode }} =
+      {{ valutesStore.valutes[converterStore.have].Nominal }}
+      {{ valutesStore.valutes[converterStore.have].CharCode }} =
       {{
-        (valutesStore.valutes[converterStore.haveChosen].Value /
-            valutesStore.valutes[converterStore.wantChosen].Value *
-            valutesStore.valutes[converterStore.wantChosen].Nominal).toFixed(2)
+        (valutesStore.valutes[converterStore.have].Value /
+            valutesStore.valutes[converterStore.want].Value *
+            valutesStore.valutes[converterStore.want].Nominal).toFixed(2)
       }}
-      {{ valutesStore.valutes[converterStore.wantChosen].CharCode }}
-</p>
+      {{ valutesStore.valutes[converterStore.want].CharCode }}
+    </p>
   </div>
 </template>
 

@@ -2,12 +2,10 @@
   <div class/>
   <div class="menu">
     <div
-        v-for="item in valutesStore.valutes"
-        :key="item"
+        v-for="item in valuteStore.valutes"
+        :key="item.ID"
         class="menu__valute"
-        @click="converterStore.changeWantChosen(item.CharCode),
-        currencysStore.addNewCurrencyWant(converterStore.wantChosen)"
-    >
+        @click="updateCurrenciesList(item.CharCode)">
       {{ item.CharCode }}
     </div>
   </div>
@@ -18,10 +16,23 @@ import {useValutesStore} from "@/stores/valutes";
 import {useConverterStore} from "@/stores/converter";
 import {useCurrencysStore} from "@/stores/currencys";
 
-const valutesStore = useValutesStore();
-const converterStore = useConverterStore();
-const currencysStore = useCurrencysStore();
+const props = defineProps<{
+  mod: "have" | "want"
+}>();
 
+const valuteStore = useValutesStore();
+const converterStore = useConverterStore();
+const currencyStore = useCurrencysStore();
+
+function updateCurrenciesList(item: string) {
+  if(props.mod === "have"){
+    currencyStore.currenciesHave = currencyStore.addNewCurrency(item, currencyStore.currenciesHave);
+    converterStore.setHave(item);
+  }else{
+    currencyStore.currenciesWant = currencyStore.addNewCurrency(item, currencyStore.currenciesWant);
+    converterStore.setWant(item);
+  }
+}
 </script>
 
 <style scoped lang="scss">
@@ -41,7 +52,7 @@ const currencysStore = useCurrencysStore();
   transform: translate(-100%, 100%);
   display: grid;
 
-  .menu__valute {
+  &__valute {
     font-weight: 600;
     cursor: pointer;
     transition: color 0.2s;

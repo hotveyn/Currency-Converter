@@ -4,22 +4,22 @@
     <p class="result__number">
 {{
         (converterStore.enterNumber *
-        (valutesStore.valutes[converterStore.haveChosen].Value /
-        valutesStore.valutes[converterStore.wantChosen].Value) /
-        valutesStore.valutes[converterStore.wantChosen].Nominal *
-        valutesStore.valutes[converterStore.haveChosen].Nominal
+        (valutesStore.valutes[converterStore.have].Value /
+        valutesStore.valutes[converterStore.want].Value) *
+        valutesStore.valutes[converterStore.want].Nominal /
+        valutesStore.valutes[converterStore.have].Nominal
         ).toFixed(2)
       }}
 </p>
     <p class="rate">
-      {{ valutesStore.valutes[converterStore.wantChosen].Nominal }}
-      {{ valutesStore.valutes[converterStore.wantChosen].CharCode }} =
+      {{ valutesStore.valutes[converterStore.want].Nominal }}
+      {{ valutesStore.valutes[converterStore.want].CharCode }} =
       {{
-        (valutesStore.valutes[converterStore.wantChosen].Value /
-            valutesStore.valutes[converterStore.haveChosen].Value *
-            valutesStore.valutes[converterStore.haveChosen].Nominal).toFixed(2)
+        (valutesStore.valutes[converterStore.want].Value /
+            valutesStore.valutes[converterStore.have].Value *
+            valutesStore.valutes[converterStore.have].Nominal).toFixed(2)
       }}
-      {{ valutesStore.valutes[converterStore.haveChosen].CharCode }}
+      {{ valutesStore.valutes[converterStore.have].CharCode }}
 </p>
   </div>
 </template>

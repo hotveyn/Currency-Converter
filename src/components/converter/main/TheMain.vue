@@ -1,17 +1,16 @@
 <template>
   <div class="converter">
-    <the-main-have/>
+    <TheMainConver mod="have"/>
     <img
         class="reverse"
         src="@/img/reverse.svg"
         alt="reverse">
-    <the-main-want/>
+    <TheMainConver mod="want"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import TheMainHave from "@/components/converter/main/TheMainHave.vue";
-import TheMainWant from "@/components/converter/main/TheMainWant.vue";
+import TheMainConver from "@/components/converter/main/TheMainConver.vue";
 </script>
 
 <style lang="scss">

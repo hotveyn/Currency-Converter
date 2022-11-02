@@ -8,7 +8,7 @@ alt="CurCorv logo">
     <RouterLink
         v-if="route.name !== 'home'"
         class="rt-link"
-        :to="{name: 'home'}"
+        :to="{name:'home'}"
     >
       Главная
     </RouterLink>

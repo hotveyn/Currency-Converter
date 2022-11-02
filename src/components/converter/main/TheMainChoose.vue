@@ -5,15 +5,24 @@
     <p>Выбрать</p>
   </div>
   <div
-v-if="isHideMenu"
-class="menu">
-    <TheMainHaveChooseMenu/>
+      v-if="isHideMenu"
+      class="menu">
+    <TheMainChooseMenu
+        v-if="props.mod === 'have'"
+        mod="have"/>
+    <TheMainChooseMenu
+        v-else
+        mod="want"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import TheMainHaveChooseMenu from "@/components/converter/main/TheMainHaveChooseMenu.vue";
+import TheMainChooseMenu from "@/components/converter/main/TheMainChooseMenu.vue";
 import {ref} from "vue";
+
+const props = defineProps<{
+  mod: "have" | "want"
+}>();
 
 const isHideMenu = ref<boolean>(false);
 

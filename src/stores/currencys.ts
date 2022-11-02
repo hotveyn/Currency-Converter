@@ -14,9 +14,9 @@ export const useCurrencysStore = defineStore("currencys", {
         enterNumber: ref(5000),
     }),
     actions: {
-        addNewCurrency(charCode: string, curenciesList: Ref<string[]>): string[] {
-            const newCurrencys = [...curenciesList.value];
-            if (!curenciesList.value.includes(charCode)) {
+        addNewCurrency(charCode: string, curenciesList: string[]): string[] {
+            const newCurrencys = [...curenciesList];
+            if (!curenciesList.includes(charCode)) {
                 for (let i = newCurrencys.length - 1; i > 0; i--) {
                     newCurrencys[i] = newCurrencys[i - 1];
                 }
