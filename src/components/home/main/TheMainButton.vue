@@ -5,7 +5,7 @@
         @click="showMenu()">
       <span class="currency-name">{{ chosenCurrencyStore.chosenCurrency }}</span>
     </button>
-    <TheMainButtonMenu v-if="{isShowMenu}"/>
+    <TheMainButtonMenu v-if="isShowMenu"/>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ import {ref} from "vue";
 import {useChosenCurrencyStore} from "@/stores/chosenCurrency";
 
 const chosenCurrencyStore = useChosenCurrencyStore();
-const isShowMenu = ref(true);
+const isShowMenu = ref(false);
 
 function showMenu(): void {
   isShowMenu.value = !(isShowMenu.value);
