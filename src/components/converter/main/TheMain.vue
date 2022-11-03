@@ -2,6 +2,7 @@
   <div class="converter">
     <TheMainConver mod="have"/>
     <img
+        @click="reverse()"
         class="reverse"
         src="@/img/reverse.svg"
         alt="reverse">
@@ -11,6 +12,22 @@
 
 <script setup lang="ts">
 import TheMainConver from "@/components/converter/main/TheMainConver.vue";
+import {useConverterStore} from "@/stores/converter";
+import {useCurrencysStore} from "@/stores/currencys";
+
+let converterStore = useConverterStore();
+let currencysStore = useCurrencysStore();
+
+function reverse(){
+  let valuteChanger = converterStore.have;
+  converterStore.have = converterStore.want;
+  converterStore.want = valuteChanger
+
+  currencysStore.currenciesHave = currencysStore.addNewCurrency(converterStore.have, currencysStore.currenciesHave)
+  currencysStore.currenciesWant = currencysStore.addNewCurrency(converterStore.want, currencysStore.currenciesWant)
+
+}
+
 </script>
 
 <style lang="scss">
