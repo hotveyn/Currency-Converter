@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <div class="enter">
     <label>
       <input
           v-model="converterStore.enterNumber"
@@ -30,7 +30,7 @@ const converterStore = useConverterStore();
 </script>
 
 <style scoped lang="scss">
-.result {
+.enter {
   padding: 0 0 20px 20px;
   margin-top: 10px;
   height: 120px;
@@ -38,6 +38,8 @@ const converterStore = useConverterStore();
   flex-direction: column;
   justify-content: flex-end;
   border: 1px solid #cdcdcd;
+  max-width: 500px;
+  width: 100%;
 
   .enter-number {
     margin-top: 20px;
@@ -47,6 +49,7 @@ const converterStore = useConverterStore();
     outline: none;
     border: none;
     appearance: none;
+    width: 100%;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {

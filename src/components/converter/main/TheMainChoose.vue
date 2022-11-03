@@ -3,7 +3,7 @@
       class="choose"
       :class="{choosing: isHideMenu}"
       @click="showHideMenu()">
-    <p>Выбрать</p>
+    <p>Выбор</p>
   </div>
   <div
       v-if="isHideMenu"
@@ -36,7 +36,7 @@ function showHideMenu() {
 <style scoped lang="scss">
 .choose {
   margin-top: 20px;
-  height: 70px;
+  height: 50px;
   width: 100px;
   border: 1px solid #cdcdcd;
   display: flex;
@@ -67,5 +67,9 @@ function showHideMenu() {
 .menu {
   position: relative;
 }
-
+@media (max-width: 370px){
+  .choose{
+    font-size: 16px;
+  }
+}
 </style>

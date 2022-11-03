@@ -2,8 +2,9 @@
   <header class="header">
     <RouterLink to="/">
       <img
-src="@/img/CurCorv.png"
-alt="CurCorv logo">
+          class="header__logo"
+          src="@/img/CurCorv.png"
+          alt="CurCorv logo">
     </RouterLink>
     <RouterLink
         v-if="route.name !== 'home'"
@@ -38,6 +39,7 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 15px;
 
   .rt-link {
     font-size: 20px;
@@ -51,6 +53,12 @@ hr {
       color: rgb(32, 221, 62);
       border-bottom-color: rgb(32, 221, 62);
     }
+  }
+}
+
+@media (max-width: 550px) {
+  .header__logo{
+    width: 150px;
   }
 }
 </style>

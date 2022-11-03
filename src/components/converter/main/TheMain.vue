@@ -25,7 +25,6 @@ function reverse(){
 
   currencysStore.currenciesHave = currencysStore.addNewCurrency(converterStore.have, currencysStore.currenciesHave)
   currencysStore.currenciesWant = currencysStore.addNewCurrency(converterStore.want, currencysStore.currenciesWant)
-
 }
 
 </script>
@@ -45,7 +44,7 @@ function reverse(){
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
-  padding: 0 20px;
+  padding: 0 5px;
   align-items: center;
   margin: 50px auto 0;
 }
@@ -53,7 +52,15 @@ function reverse(){
 @media screen and (max-width: 1250px) {
   .converter {
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
+  }
+  .reverse{
+    transform: rotate(90deg);
+  }
+}
+@media screen and (max-width: 700px){
+  .reverse{
+    width: calc(60px + (80 - 60) * ((100vw - 320px) / (700 - 320)));
   }
 }
 </style>

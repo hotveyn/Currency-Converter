@@ -43,6 +43,8 @@ function calculateResultNumber(): string {
   flex-direction: column;
   justify-content: flex-end;
   border: 1px solid #cdcdcd;
+  max-width: 500px;
+  width: 100%;
 
   .result__number {
     margin-top: 20px;

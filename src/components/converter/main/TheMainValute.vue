@@ -39,7 +39,7 @@ if(props.mod === "have"){
 <style scoped lang="scss">
 .valute {
   margin-top: 20px;
-  height: 70px;
+  height: 50px;
   width: 100px;
   border: 1px solid #cdcdcd;
   display: flex;
@@ -66,5 +66,10 @@ if(props.mod === "have"){
 .chosen {
   background-color: #16b67f;
   color: white;
+}
+@media (max-width: 370px){
+  .valute{
+    font-size: 20px;
+  }
 }
 </style>

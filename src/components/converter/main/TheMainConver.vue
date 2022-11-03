@@ -18,7 +18,7 @@
           :key="currency"
           :valute="currency"
           mod="have"/>
-      <theMainChoose mod="have"/>
+      <theMainChoose class="item__button" mod="have"/>
     </div>
     <div
         v-if="props.mod === 'want'"
@@ -28,7 +28,7 @@
           :key="currency"
           :valute="currency"
           mod="want"/>
-      <theMainChoose mod="want"/>
+      <theMainChoose class="item__button" mod="want"/>
     </div>
     <theMainEnter v-if=" props.mod==='have'"/>
     <TheMainResult v-else/>
@@ -53,7 +53,12 @@ const currencysStore = useCurrencysStore();
 .valutes-buttons {
   display: flex;
   font-size: 20px;
-
+  max-width: 500px;
+  width: 100%;
+}
+.item{
+  max-width: 500px;
+  width: 100%;
 }
 
 .item__title {
